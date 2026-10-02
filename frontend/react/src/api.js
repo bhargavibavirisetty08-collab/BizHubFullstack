@@ -19,7 +19,7 @@ async function request(path, options = {}) {
 }
 
 export const api = {
-  health: () => fetch("http://localhost:5000/").then((r) => r.json()),
+ health: () => fetch(`${API_BASE_URL.replace("/api", "")}/`).then((r) => r.json()),
   login: (email, password) => request("/auth/login", {
     method: "POST",
     body: JSON.stringify({ email, password })
